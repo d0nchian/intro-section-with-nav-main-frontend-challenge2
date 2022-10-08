@@ -87,14 +87,15 @@
       }
       .features-icons p,
       .panel-company a,
-      .header-left a,
-      .header-right a,
       .dropbtn {
         color: var(--medium-gray);
         text-decoration: none;
       }
       .panel img {
         width: 20px;
+      }
+      .features-icons p:hover {
+        color: var(--almost-black);
       }
 
       .sidenav > a {
@@ -128,13 +129,22 @@
         color: var(--medium-gray);
       }
 
-      .login .login-register {
+      .login #login-register {
         border: 2.5px solid var(--medium-gray);
         width: 80%;
         text-align: center;
         border-radius: 10px;
         margin: 2rem;
         padding: 0.75rem 0;
+        background-color: var(--almost-black);
+        color: var(--almost-white);
+      }
+      #login-register:hover {
+        color: var(--almost-black);
+        background-color: var(--almost-white);
+      }
+      #login-mobile:hover {
+        color: var(--almost-black);
       }
       .menu-company .company-arrow,
       .menu-features .features-arrow {
@@ -149,19 +159,14 @@
         padding: 1rem 1rem;
         grid-area: header;
       }
-      .header-left,
-      .header-right a {
+      .header-desktop {
         display: none;
       }
-      .header2,
       .header-right {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 1.5rem;
-      }
-      .header2 a {
-        margin: 0 20px;
       }
       .hamburger {
         max-height: 50px;
@@ -233,19 +238,31 @@
           grid-template-columns: 1fr 1fr;
           grid-template-rows: 80px 1fr 90px;
           grid-template-areas:
-            "header header"
+            "header-desktop header-desktop"
             "main-body hero"
             "footer hero";
         }
-        .header-left,
-        .header-right a {
-          display: block;
+        .header-desktop {
+          display: flex;
+          grid-area: header-desktop;
+          justify-content: space-between;
         }
-        .hamburger {
+        .header-left {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 2.5rem;
+          margin-left: 2rem;
+        }
+        .header-right {
+          gap: 2.5rem;
+          margin-right: 2rem;
+        }
+        .hamburger,
+        .header {
           display: none;
         }
         .main-container {
-          outline: 3px solid orange;
           height: 90vh;
           box-sizing: border-box;
           margin: 2rem 2rem 6rem 2rem;
@@ -282,25 +299,31 @@
         }
         .dropdown {
           position: relative;
-          display: inline-block;
+          color: var(--medium-gray);
+        }
+        .dropdown:hover,
+        .features-icons p:hover {
+          color: var(--almost-black);
         }
         .dropdown-content {
-          display: block;
-          outline: 2px solid red;
+          display: none;
           position: absolute;
-          left: -75px;
-          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          left: -20px;
+          top: 19px;
           z-index: 2;
           border-radius: 0.4rem;
           line-height: 3rem;
           background-color: white;
-          margin: 20% 0;
-          padding: 20% 0;
-          min-width: 160px;
+          padding: 20% 20%;
+          min-width: 180px;
         }
         .dropdown:hover .dropdown-content {
-          display: block;
-          padding: 2% 0;
+          display: flex;
+          flex-direction: column;
+          padding: 2% 2%;
+          justify-content: center;
+          align-items: center;
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         }
         .dropbtn {
           color: inherit;
@@ -316,6 +339,44 @@
         .header2 {
           justify-self: flex-end;
           align-self: flex-end;
+        }
+        .header-left a,
+        .header-right a:not(.register-desktop) {
+          text-decoration: none;
+          color: var(--medium-gray);
+        }
+        .dropdown img {
+          margin-left: 5px;
+        }
+        .dropdown:hover #company-arrow {
+          transform: rotate(180deg);
+        }
+        #company-arrow {
+          margin-left: 8px;
+        }
+        .header-right:hover {
+          color: var(--almost-black);
+        }
+        .register-desktop {
+          padding: 1.25rem 1.5rem;
+          font-family: inherit;
+          border: 2px solid (--almost-black);
+          border-radius: 1rem;
+          background-color: var(--almost-black);
+          font-size: inherit;
+        }
+        .register-desktop {
+          text-decoration: none;
+          color: white;
+          border: 2px solid var(--almost-black);
+        }
+        .register-desktop:hover {
+          background-color: var(--almost-white);
+          color: var(--almost-black);
+          border: 2px solid var(--almost-black);
+        }
+        #login-desktop:hover {
+          color: var(--almost-black);
         }
       }
     </style>
@@ -373,62 +434,14 @@
         <a href="#">Careers</a>
         <a href="#">About</a>
         <div class="login">
-          <a class="login1" href="#">Login</a>
-          <a class="login-register" href="#">Register</a>
+          <a class="login-mobile" id="login-mobile" href="#">Login</a>
+          <a class="login-register" id="login-register" href="#">Register</a>
         </div>
       </div>
       <div class="focus" id="focus"></div>
       <header class="header">
-        <div class="header2">
-          <h1>snap</h1>
-          <div class="header-left panel">
-            <!-- <p class="features2" href="#">Features</p> -->
-            <div class="dropdown">
-              <button class="dropbtn">Features</button>
-              <img src="./images/icon-arrow-down.svg" alt="" />
-              <div class="dropdown-content panel">
-                <a href="#" class="features-icons">
-                  <img src="./images/icon-todo.svg" alt="" />
-                  <p>Todo List</p>
-                </a>
-                <a href="#" class="features-icons">
-                  <img src="./images/icon-calendar.svg" alt="" />
-                  <p>Calendar</p>
-                </a>
-                <a href="#" class="features-icons">
-                  <img src="./images/icon-reminders.svg" alt="" />
-                  <p>Reminders</p>
-                </a>
-                <a href="#" class="features-icons">
-                  <img src="./images/icon-planning.svg" alt="" />
-                  <p>Planning</p>
-                </a>
-              </div>
-            </div>
-            <!-- <div class="dropdown2">
-              <button class="dropbtn2">Company</button>
-              <img src="./images/icon-arrow-down.svg" alt="" />
-              <div class="dropdown-content panel">
-                <a href="#" class="features-icons">
-                  <p>Todo List</p>
-                </a>
-                <a href="#" class="features-icons">
-                  <p>Calendar</p>
-                </a>
-                <a href="#" class="features-icons">
-                  <p>Reminders</p>
-                </a>
-              </div> -->
-            <!-- <a href="#">Company</a> -->
-            <a href="#">Careers</a>
-            <a href="#">About</a>
-          </div>
-        </div>
+        <h1>snap</h1>
         <div>
-          <div class="header-right">
-            <a href="#">Login</a>
-            <a href="#">Register</a>
-          </div>
           <img
             class="hamburger"
             src="./images/icon-menu.svg"
@@ -436,7 +449,64 @@
             onclick="openNav()"
           />
         </div>
-        <!-- <img src="./images/icon-close-menu.svg" alt="" /> -->
+      </header>
+      <header class="header-desktop">
+        <div class="header-left panel">
+          <h1>snap</h1>
+          <div class="dropdown">
+            <button class="dropbtn">
+              Features<img
+                src="./images/icon-arrow-down.svg"
+                id="company-arrow"
+                alt=""
+              />
+            </button>
+            <div class="dropdown-content panel">
+              <a href="#" class="features-icons">
+                <img src="./images/icon-todo.svg" alt="" />
+                <p>Todo List</p>
+              </a>
+              <a href="#" class="features-icons">
+                <img src="./images/icon-calendar.svg" alt="" />
+                <p>Calendar</p>
+              </a>
+              <a href="#" class="features-icons">
+                <img src="./images/icon-reminders.svg" alt="" />
+                <p>Reminders</p>
+              </a>
+              <a href="#" class="features-icons">
+                <img src="./images/icon-planning.svg" alt="" />
+                <p>Planning</p>
+              </a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn">
+              Company<img
+                src="./images/icon-arrow-down.svg"
+                id="company-arrow"
+                alt=""
+              />
+            </button>
+            <div class="dropdown-content panel">
+              <a href="#" class="features-icons">
+                <p>History</p>
+              </a>
+              <a href="#" class="features-icons">
+                <p>Our Team</p>
+              </a>
+              <a href="#" class="features-icons">
+                <p>Blog</p>
+              </a>
+            </div>
+          </div>
+          <a href="#">Careers</a>
+          <a href="#">About</a>
+        </div>
+        <div class="header-right">
+          <a id="login-desktop" href="#">Login</a>
+          <a class="register-desktop" href="#">Register</a>
+        </div>
       </header>
       <picture class="hero">
         <source
