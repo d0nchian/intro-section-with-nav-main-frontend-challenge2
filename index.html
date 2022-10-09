@@ -39,7 +39,7 @@
       }
 
       h1 {
-        font-size: 2.6rem;
+        font-size: 2rem;
       }
       .main-container a:hover {
         color: var(--almost-black);
@@ -90,9 +90,7 @@
       .dropbtn {
         color: var(--medium-gray);
         text-decoration: none;
-      }
-      .panel img {
-        width: 20px;
+        font-size: 0.85rem;
       }
       .features-icons p:hover {
         color: var(--almost-black);
@@ -101,12 +99,10 @@
       .sidenav > a {
         padding: 8px 0;
         text-decoration: none;
-        font-size: 2rem;
         color: var(--medium-gray);
         display: block;
-        transition: 0.3s;
-        font-size: 1.1rem;
         margin: 1rem 2rem;
+        font-size: 0.9rem;
       }
       .sidenav .closebtn {
         position: absolute;
@@ -170,7 +166,6 @@
       }
       .hamburger {
         max-height: 50px;
-        width: 50px;
         cursor: pointer;
         background-color: inherit;
         z-index: 0;
@@ -191,13 +186,15 @@
         grid-area: main-body;
         text-align: center;
       }
+      .main-body h1 {
+        margin-top: 2rem;
+      }
       .main-body p {
         width: 90%;
-        font-size: 1.4rem;
         color: var(--medium-gray);
       }
       .btn {
-        padding: 1.25rem 1.5rem;
+        padding: 0.75rem 1rem;
         font-family: inherit;
         border: 2px solid (--almost-black);
         border-radius: 1rem;
@@ -234,6 +231,7 @@
       }
       @media (min-width: 800px) {
         .main-container {
+          padding-bottom: 4rem;
           display: grid;
           grid-template-columns: 1fr 1fr;
           grid-template-rows: 80px 1fr 90px;
@@ -253,46 +251,44 @@
           align-items: center;
           gap: 2.5rem;
           margin-left: 2rem;
+          font-size: 0.9rem;
         }
         .header-right {
           gap: 2.5rem;
           margin-right: 2rem;
+          font-size: 0.9rem;
         }
         .hamburger,
         .header {
           display: none;
         }
         .main-container {
-          height: 90vh;
           box-sizing: border-box;
-          margin: 2rem 2rem 6rem 2rem;
         }
         .hero {
-          width: 100%;
-          object-fit: contain;
-          height: 100%;
-          min-width: 100%;
+          max-width: 450px;
+          justify-self: center;
         }
         .main-body {
           align-items: flex-start;
-          margin: 0 30% 0 10%;
           max-width: 100%;
           text-align: left;
+          padding-left: 20%;
         }
         .main-body h1 {
-          font-size: 6rem;
+          font-size: 3.5rem;
         }
         .main-body p {
-          font-size: 1.5rem;
-          width: 50%;
-          line-height: 2rem;
+          font-size: 0.9rem;
+          width: 75%;
+          line-height: 1.35rem;
           margin: 3% 0;
         }
         .footer {
           margin-left: 6%;
         }
         body {
-          overflow-y: hidden;
+          /* overflow-y: hidden; */
         }
         .header {
           position: relative;
@@ -358,7 +354,7 @@
           color: var(--almost-black);
         }
         .register-desktop {
-          padding: 1.25rem 1.5rem;
+          padding: 0.7rem 0.9rem;
           font-family: inherit;
           border: 2px solid (--almost-black);
           border-radius: 1rem;
@@ -377,6 +373,9 @@
         }
         #login-desktop:hover {
           color: var(--almost-black);
+        }
+        .client-sponsor {
+          padding-left: 10%;
         }
       }
     </style>
